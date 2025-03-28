@@ -16,3 +16,28 @@ form.addEventListener("submit", (event) => {
     }
 
 })
+
+passwordInput.addEventListener("keypress", () => {
+    let password = passwordInput.value;
+    // regular expressions - regex
+    /* Validations
+    Uppercase
+    Lowercase
+    Number
+    Special Character
+    Min length 8
+    */
+    if (
+        password.length >= 8 &&
+        password.match("[A-Z]") &&
+        password.match("[a-z]") &&
+        password.match("[0-9]") && // \\d
+        password.match("[\\W]")
+    ) {
+        passwordInput.setAttribute("class", "valid");
+        document.getElementById("submit-button").removeAttribute("disabled");
+    } else {
+        passwordInput.setAttribute("class", "invalid");
+    }
+
+})
